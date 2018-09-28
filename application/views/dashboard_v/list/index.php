@@ -24,7 +24,7 @@
         <div class="wrap">
             <section class="app-content">
 
-               <?php $this->load->view("dashboard_v/content");?>
+                <?php $this->load->view("{$viewFolder}/{$subviewFolder}/content");?>
 
             </section><!-- #dash-content -->
         </div><!-- .wrap -->

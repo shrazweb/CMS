@@ -53,7 +53,7 @@
         <div class="menubar-scroll-inner">
             <ul class="app-menu">
                 <li class="has-submenu">
-                    <a href="javascript:void(0)">
+                    <a href="<?php echo base_url("dashboard");?>">
                         <i class="menu-icon zmdi zmdi-view-dashboard zmdi-hc-lg"></i>
                         <span class="menu-text">Dashboard</span>
                     </a>
@@ -87,7 +87,7 @@
                 </li>
 
                 <li>
-                    <a href="javascript:void(0)">
+                    <a href="<?php echo base_url("product");?>">
                         <i class="menu-icon fa fa-cubes"></i>
                         <span class="menu-text">Ürünler</span>
                     </a>
