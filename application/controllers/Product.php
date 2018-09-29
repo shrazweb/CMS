@@ -14,7 +14,7 @@ class Product extends CI_Controller
     }
     public function index()
     {
-        $viewData = new stdClass();
+
 
     /** tablodan verilerin getirilmesi */
 
@@ -22,6 +22,7 @@ class Product extends CI_Controller
 
     /** view'e gönderilecek değişkenlerin set edilmesi */
 
+        $viewData = new stdClass();
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subviewFolder = "list";
         $viewData->items = $items;
@@ -45,7 +46,7 @@ class Product extends CI_Controller
         $this->form_validation->set_rules("title","Ürün Adı","required|trim");
         $this->form_validation->set_message(
             array(
-                  "required" =>  "<b>{field}</b> doldurulmalıdır"
+                  "required" =>  "<b>{field}</b> boş olamaz"
             )
         );
 
@@ -56,7 +57,13 @@ class Product extends CI_Controller
         if ($validate){
 
         } else {
-            echo validation_errors();
+            /** view'e gönderilecek değişkenlerin set edilmesi */
+            $viewData = new stdClass();
+            $viewData->viewFolder = $this->viewFolder;
+            $viewData->subviewFolder = "add";
+            $viewData->form_hata = true;
+
+            $this->load->view("{$this->viewFolder}/{$viewData->subviewFolder}/index", $viewData);
         }
 
 

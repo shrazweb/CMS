@@ -14,8 +14,12 @@
                 <form action="<?php echo base_url("product/save"); ?>" method="post">
                     <div class="form-group">
                         <label>Başlık</label>
-                        <input name="title" type="email" class="form-control" placeholder="Başlık">
+                        <input class="form-control" placeholder="Ürün adı.." name="title" >
+                        <?php if(isset($form_error)); {?>
+                            <small class="input-form-error"> <?php echo form_error("title"); ?></small>
+                        <?php } ?>
                     </div>
+
                     <div class="form-group">
                         <label>Açıklama</label>
                         <textarea name="description" class="m-0" data-plugin="summernote" data-options="{height: 250}"></textarea>
