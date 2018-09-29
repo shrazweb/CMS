@@ -8,11 +8,11 @@
 	app.defaults = {
 		menubar: {
 			folded: false,
-			theme: 'dark',
+			theme: 'light',
 			themes: ['light', 'dark']
 		},
 		navbar: {
-			theme: 'warning',
+			theme: 'primary',
 			themes: ['primary', 'success', 'warning', 'danger', 'pink', 'purple', 'inverse', 'dark']
 		}
 	};
