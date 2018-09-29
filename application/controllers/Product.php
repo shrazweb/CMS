@@ -55,6 +55,25 @@ class Product extends CI_Controller
         $validate = $this->form_validation->run();
 
         if ($validate){
+           echo date_default_timezone_set('Etc/GMT-3');
+           $insert = $this->product_model->add(
+                array(
+                    "title" => $this->input->post("title"),
+                    "description" => $this->input->post("description"),
+                    "url" => "test",
+                    "isActive" => 1,
+                    "rank" => 0,
+                    "createdAt" => date('Y-m-d H:i:s')
+                )
+            );
+
+           if ($insert){
+
+               echo "Kayıt işlemi başarılıdır...";
+
+            }else {
+               echo "Kayıt yapılamadı";
+           }
 
         } else {
             /** view'e gönderilecek değişkenlerin set edilmesi */
