@@ -30,6 +30,7 @@ class Product extends CI_Controller
         $this->load->view("{$this->viewFolder}/{$viewData->subviewFolder}/index", $viewData);
     }
     public function add(){
+
         $viewData = new stdClass();
 
         /** view'e gönderilecek değişkenlerin set edilmesi */
@@ -55,12 +56,16 @@ class Product extends CI_Controller
         $validate = $this->form_validation->run();
 
         if ($validate){
+            // Giriş yapılan yerin zaman dilimini ayarlar
            echo date_default_timezone_set('Etc/GMT-3');
+
+           // Formdan gelen verileri modeli de kullanarak veritabanına gönderir
            $insert = $this->product_model->add(
                 array(
                     "title" => $this->input->post("title"),
                     "description" => $this->input->post("description"),
-                    "url" => "test",
+                    // tools helper'inden convertToSeo fonksiyonunu çağırıyor ve başlığı seo şekline dönüştürüyor
+                    "url" => convertToSeo($this->input->post("title")),
                     "isActive" => 1,
                     "rank" => 0,
                     "createdAt" => date('Y-m-d H:i:s')
