@@ -3,11 +3,11 @@
         <div class="widget p-lg">
             <?php if(empty($items)){?>
             <div class="alert alert-danger text-center text">
-                <p>Henüz ürün eklemediniz. Hemen yeni bir tane ekleyin.. <a href="" class="fa fa-plus btn btn-danger btn-sm"> Ürün Ekle</a></p>
+                <p>Henüz ürün eklemediniz. Hemen yeni bir tane ekleyin.. <a href="<?php echo base_url("product/add"); ?>" class="fa fa-plus btn btn-danger btn-sm"> Ürün Ekle</a></p>
             </div>
             <?php } else { ?>
             <h4 class="m-b-lg">Ürün Listesi
-                <a href="" class="btn btn-success pull-right"><i class="fa fa-plus"> Yeni Ekle</i></a>
+                <a href="<?php echo base_url("product/add"); ?>" class="btn btn-success pull-right"><i class="fa fa-plus"> Yeni Ekle</i></a>
             </h4>
                 <table class="table table-striped table-hover">
                     <thead>
@@ -29,7 +29,7 @@
                           <td>
 
                               <input
-                                      
+
                                       type="checkbox"
                                       data-switchery="true"
                                       data-color="#10c469"
