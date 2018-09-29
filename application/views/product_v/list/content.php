@@ -33,7 +33,7 @@
                                       type="checkbox"
                                       data-switchery="true"
                                       data-color="#10c469"
-                                     <!-- verinin aktif olup olmadığını kontrol eder -->
+
                                       <?php echo ($item->isActive) ? "checked" : "" ;?>
                               >
 
