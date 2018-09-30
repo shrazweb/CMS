@@ -1,6 +1,10 @@
 
 $(document).ready(function () {
 
+    /* Tabloda sıralama işlemi yapıyoruz */
+    $(".sortable").sortable();
+
+    /* sweetAlert işlemini yapıyoruz. */
     $(".remove-btn").click(function () {
 
         // sil butonundan gelen data url yi okuyan metod
@@ -37,6 +41,7 @@ $(document).ready(function () {
     });
    });
 
+    /* isActive işlemini yapıyoruz // Kayıt etkin mi değil mi? */
     $(".isActive").change(function () {
 
         var $data = $(this).prop("checked");
@@ -46,8 +51,20 @@ $(document).ready(function () {
             // jquery nin post işlemini kullanıyoruz ki içine 3 parametre alır.
             // 1.si url 2.si bilgi yani input name i 3.sü fonksiyon
             $.post($data_url, {data : $data}, function(response) {
-                
+
             });
         }
 
     });
+
+    // Sıralama yapılıyor
+    $(".sortable").on("sortupdate",function(event,ui) {
+
+        var $data = $(this).sortable("serialize");
+        var $data_url = $(this).data("url");
+        $.post($data_url, {data: $data}, function(response) {
+        })
+
+    });
+
+
