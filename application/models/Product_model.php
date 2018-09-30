@@ -29,4 +29,9 @@ class Product_model extends CI_Model{
         return $this->db->where($where)->update($this->tablename, $data);
     }
 
+    public function delete($where = array())
+    {
+        return $this->db->where($where)->delete($this->tablename);
+    }
+
 }
