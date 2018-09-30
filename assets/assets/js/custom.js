@@ -32,9 +32,22 @@ $(document).ready(function () {
                 });
 
         }
-    });
-        setTimeout(doit, 5000);
+    })
+
     });
    });
 
+    $(".isActive").change(function () {
 
+        var $data = $(this).prop("checked");
+        var $data_url = $(this).data("url");
+
+        if(typeof $data !== "undefined" && typeof $data_url !== "undefined"){
+            // jquery nin post işlemini kullanıyoruz ki içine 3 parametre alır.
+            // 1.si url 2.si bilgi yani input name i 3.sü fonksiyon
+            $.post($data_url, {data : $data}, function(response) {
+                
+            });
+        }
+
+    });
