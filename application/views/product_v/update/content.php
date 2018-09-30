@@ -11,7 +11,7 @@
             <hr class="widget-separator">
             <div class="widget-body">
                 <div class="m-b-lg">
-                <form action="<?php echo base_url("product/save"); ?>" method="post">
+                <form action="<?php echo base_url("product/update/$item->id"); ?>" method="post">
                     <div class="form-group">
                         <label>Ürün Adı</label>
                         <input class="form-control" placeholder="Ürün adı.." name="title" value="<?php echo $item->title; ?>">
@@ -27,7 +27,7 @@
                         </textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-success btn-md btn-outline">Kaydet</button>
+                    <button type="submit" class="btn btn-success btn-md btn-outline">Güncelle</button>
                     <a href="<?php echo base_url("product"); ?>" class="btn btn-danger btn-md btn-outline">İptal</a>
                 </form>
             </div><!-- .widget-body -->

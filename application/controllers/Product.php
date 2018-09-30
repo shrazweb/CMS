@@ -113,4 +113,63 @@ class Product extends CI_Controller
         $this->load->view("{$this->viewFolder}/{$viewData->subviewFolder}/index", $viewData);
 
     }
+    public function update($id){
+        $this->load->library("form_validation");
+        // Kurallar yazılır
+        $this->form_validation->set_rules("title","Ürün Adı","required|trim");
+        $this->form_validation->set_message(
+            array(
+                "required" =>  "<b>{field}</b> boş olamaz"
+            )
+        );
+
+        // Formvalidation çalıştırılır  // True ->False
+
+        $validate = $this->form_validation->run();
+
+        if ($validate){
+            // Giriş yapılan yerin zaman dilimini ayarlar
+            echo date_default_timezone_set('Etc/GMT-3');
+
+            // Formdan gelen verileri modeli de kullanarak veritabanına gönderir
+            $update = $this->product_model->update(
+                array(
+                    "id" => $id
+                ),
+                array(
+                    "title" => $this->input->post("title"),
+                    "description" => $this->input->post("description"),
+                    // tools helper'inden convertToSeo fonksiyonunu çağırıyor ve başlığı seo şekline dönüştürüyor
+                    "url" => convertToSeo($this->input->post("title")),
+                )
+            );
+            // TODO alert sistemi eklenecek...
+            if ($update){
+
+                redirect(base_url("product"));
+
+            }else {
+                redirect(base_url("product"));
+            }
+
+        } else {
+            /** view'e gönderilecek değişkenlerin set edilmesi */
+            $viewData = new stdClass();
+            // tablodan verilerin alınması
+            $item = $this->product_model->get(
+                array(
+                    "id" => $id,
+                )
+            );
+            $viewData->viewFolder = $this->viewFolder;
+            $viewData->subviewFolder = "update";
+            $viewData->item = $item;
+            $viewData->form_hata = true;
+
+            $this->load->view("{$this->viewFolder}/{$viewData->subviewFolder}/index", $viewData);
+        }
+
+
+
+    }
 }
