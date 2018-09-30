@@ -220,4 +220,15 @@ class Product extends CI_Controller
             );
         }
     }
+    public function image_form(){
+
+        $viewData = new stdClass();
+
+        /** view'e gönderilecek değişkenlerin set edilmesi */
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subviewFolder = "image";
+
+        $this->load->view("{$this->viewFolder}/{$viewData->subviewFolder}/index", $viewData);
+
+    }
 }
