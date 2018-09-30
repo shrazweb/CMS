@@ -1,11 +1,5 @@
 <div class="row">
     <div class="col-md-12">
-
-            <h4 class="m-b-lg">Ürün Fotoğrafları Ekle</h4>
-
-    </div>
-
-    <div class="col-md-12">
         <div class="widget">
             <hr class="widget-separator">
             <div class="widget-body">
@@ -33,10 +27,10 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>id</td>
-                        <td><img width="100" src="http://www.shrazweb.com/wp-content/uploads/2016/11/kartvizit-r.png" alt="" class="img responsive"></td>
+                        <td class="w100 text-center">id</td>
+                        <td class="w100 text-center"><img width="100" src="http://www.shrazweb.com/wp-content/uploads/2016/11/kartvizit-r.png" alt="" class="img responsive"></td>
                         <td>Resim Adı</td>
-                        <td>
+                        <td class="w100 text-center">
                             <input
                                     data-url="<?php echo base_url("product/isActiveSetter/"); ?>"
                                     class="isActive"
@@ -47,42 +41,9 @@
                                 <?php echo (true) ? "checked" : "" ;?>
                             >
                         </td>
-                        <td><button data-url="<?php echo base_url("product/delete/"); ?>" class="btn btn-sm btn-danger btn-outline remove-btn"><i class="fa fa-trash"></i> Sil</button></td>
+                        <td class="w100 text-center"><button data-url="<?php echo base_url("product/delete/"); ?>" class="btn btn-sm btn-danger btn-outline btn-block remove-btn"><i class="fa fa-trash"></i> Sil</button></td>
                     </tr>
-                    <tr>
-                        <td>id</td>
-                        <td><img width="100" src="http://www.shrazweb.com/wp-content/uploads/2016/11/kartvizit-r.png" alt="" class="img responsive"></td>
-                        <td>Resim Adı</td>
-                        <td>
-                            <input
-                                    data-url="<?php echo base_url("product/isActiveSetter/"); ?>"
-                                    class="isActive"
-                                    type="checkbox"
-                                    data-switchery
-                                    data-color="#10c469"
 
-                                <?php echo (true) ? "checked" : "" ;?>
-                            >
-                        </td>
-                        <td><button data-url="<?php echo base_url("product/delete/"); ?>" class="btn btn-sm btn-danger btn-outline remove-btn"><i class="fa fa-trash"></i> Sil</button></td>
-                    </tr>
-                    <tr>
-                        <td>id</td>
-                        <td><img width="100" src="http://www.shrazweb.com/wp-content/uploads/2016/11/kartvizit-r.png" alt="" class="img responsive"></td>
-                        <td>Resim Adı</td>
-                        <td>
-                            <input
-                                    data-url="<?php echo base_url("product/isActiveSetter/"); ?>"
-                                    class="isActive"
-                                    type="checkbox"
-                                    data-switchery
-                                    data-color="#10c469"
-
-                                <?php echo (true) ? "checked" : "" ;?>
-                            >
-                        </td>
-                        <td><button data-url="<?php echo base_url("product/delete/"); ?>" class="btn btn-sm btn-danger btn-outline remove-btn"><i class="fa fa-trash"></i> Sil</button></td>
-                    </tr>
                     </tbody>
                 </table>
             </div><!-- .widget-body -->
