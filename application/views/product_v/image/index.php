@@ -3,6 +3,7 @@
 <html lang="tr">
 <head>
     <?php $this->load->view("includes/head");?>
+    <?php $this->load->view("{$viewFolder}/{$subviewFolder}/page_style");?>
 </head>
 <body class="menubar-left menubar-unfold menubar-light theme-primary">
     <!--============= start main area -->
