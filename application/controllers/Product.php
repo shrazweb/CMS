@@ -220,15 +220,35 @@ class Product extends CI_Controller
             );
         }
     }
-    public function image_form(){
+    public function image_form($id){
 
         $viewData = new stdClass();
 
         /** view'e gönderilecek değişkenlerin set edilmesi */
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subviewFolder = "image";
+        $viewData->item = $this->product_model->get(
+            array(
+                "id" => $id
+            )
+        );
 
         $this->load->view("{$this->viewFolder}/{$viewData->subviewFolder}/index", $viewData);
 
+    }
+    public function image_upload(){
+
+        $config["allowed_types"] = "jpg|jpeg|png";
+        $config["upload_path"] = "uploads/$this->viewFolder/";
+
+        $this->load->library("upload", $config);
+
+        $upload = $this->upload->do_upload("file");
+
+        if($upload){
+            echo "işlem başarılı";
+        }else{
+            echo "işlem başarısız";
+        }
     }
 }
