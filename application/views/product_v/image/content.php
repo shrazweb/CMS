@@ -3,7 +3,7 @@
         <div class="widget">
             <hr class="widget-separator">
             <div class="widget-body">
-                <form action="<?php echo base_url("product/image_upload"); ?>" class="dropzone" data-plugin="dropzone" data-options="{ url: '<?php echo base_url("product/image_upload"); ?>'}">
+                <form action="<?php echo base_url("product/image_upload/$item->id"); ?>" class="dropzone" data-plugin="dropzone" data-options="{ url: '<?php echo base_url("product/image_upload/$item->id"); ?>'}">
                     <div class="dz-message">
                         <h3 class="m-h-lg">Yüklemek istediğiniz resimleri buraya sürükleyiniz</h3>
                         <p class="m-b-lg text-muted">(Yüklemek için dosyalarınızı sürükleyiniz yada buraya tıklayınız)</p>
@@ -17,17 +17,18 @@
         <div class="col-md-12">
             <div class="widget p-lg">
 
-                <h4><b><?php echo $item->title; ?></b> kaydına ait resimler</h4>
+                <div class="container-fluid"><b class="alert alert-warning"><i class="fa fa-camera"></i>  <?php echo $item->title; ?></b><a class="btn btn-info btn-md pull-right" href="<?php echo base_url("product"); ?>">Kapat</a>
+                </div>
 
 
             <div class="widget-body">
                 <table class="table table-bordered table-striped table-hover">
                     <thead>
-                    <th>id</th>
-                    <th>Görsel</th>
+                    <th class="w100 text-center">id</th>
+                    <th class="w150 text-center">Görsel</th>
                     <th>Resim Adı</th>
-                    <th>Durumu</th>
-                    <th>İşlem</th>
+                    <th class="w100 text-center">Durumu</th>
+                    <th class="w100 text-center">İşlem</th>
                     </thead>
                     <tbody>
                     <tr>

@@ -16,7 +16,7 @@ $(document).ready(function () {
         swal({
             title: 'Kayıt Silinecek ?',
             text: "İşlem geri alınamaz !",
-            type: 'warning',
+            type: 'danger',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',

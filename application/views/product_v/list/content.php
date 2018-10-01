@@ -17,7 +17,7 @@
                         <th>url</th>
                         <th>Açıklama</th>
                         <th>Durumu</th>
-                        <th>İşlemler</th>
+                        <th class="w100 text-center">İşlemler</th>
                     </thead>
                     <tbody class="sortable" data-url="<?php echo base_url("product/rankSetter"); ?>">
                   <?php foreach($items as $item) {;?>
@@ -41,7 +41,7 @@
                               >
 
                           </td>
-                          <td>
+                          <td class="text-center">
                               <button data-url="<?php echo base_url("product/delete/$item->id"); ?>" class="btn btn-sm btn-danger btn-outline remove-btn"><i class="fa fa-trash"></i> Sil</button>
                               <a href="<?php echo base_url("product/update_form/$item->id"); ?>" class="btn btn-sm btn-info btn-outline"><i class="fa fa-edit"></i> Düzenle</a>
                               <a href="<?php echo base_url("product/image_form/$item->id"); ?>" class="btn btn-sm btn-default"><i class="fa fa-image"></i> Resimler</a>
