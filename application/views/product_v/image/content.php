@@ -16,12 +16,14 @@
     <div class="row">
         <div class="col-md-12">
             <div class="widget p-lg">
-
                 <div class="container-fluid"><b class="alert alert-warning"><i class="fa fa-camera"></i>  <?php echo $item->title; ?></b><a class="btn btn-info btn-md pull-right" href="<?php echo base_url("product"); ?>">Kapat</a>
                 </div>
-
-
             <div class="widget-body">
+                <?php if(empty($item_images)){?>
+                    <div class="alert alert-danger text-center text">
+                        <p>Henüz resim yüklenmedi.</p>
+                    </div>
+                <?php } else { ?>
                 <table class="table table-bordered table-striped table-hover">
                     <thead>
                     <th class="w100 text-center">id</th>
@@ -31,10 +33,12 @@
                     <th class="w100 text-center">İşlem</th>
                     </thead>
                     <tbody>
+                    <?php foreach ($item_images as $image) {;?>
                     <tr>
-                        <td class="w100 text-center">id</td>
-                        <td class="w150 text-center"><img width="150" src="http://www.shrazweb.com/wp-content/uploads/2016/11/kartvizit-r.png" alt="" class="img responsive"></td>
-                        <td>Resim Adı</td>
+                        <td class="w100 text-center"><?php echo $image->id; ?></td>
+                        <td class="w150 text-center">
+                            <img width="150" src="<?php echo base_url("uploads/{$viewFolder}/$image->img_url");?>" alt="<?php echo base_url("uploads/{$viewFolder}/$image->img_url");?>" class="img responsive"></td>
+                        <td><?php echo $image->img_url; ?></td>
                         <td class="w100 text-center">
                             <input
                                     data-url="<?php echo base_url("product/isActiveSetter/"); ?>"
@@ -43,14 +47,15 @@
                                     data-switchery
                                     data-color="#10c469"
 
-                                <?php echo (true) ? "checked" : "" ;?>
+                                <?php echo ($image->id) ? "checked" : "" ;?>
                             >
                         </td>
                         <td class="w100 text-center"><button data-url="<?php echo base_url("product/delete/"); ?>" class="btn btn-sm btn-danger btn-outline btn-block remove-btn"><i class="fa fa-trash"></i> Sil</button></td>
                     </tr>
-
+                    <?php }; ?>
                     </tbody>
                 </table>
+                <?php }; ?>
             </div><!-- .widget-body -->
         </div><!-- .widget -->
     </div>

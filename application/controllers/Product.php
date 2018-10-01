@@ -234,6 +234,12 @@ class Product extends CI_Controller
             )
         );
 
+        $viewData->item_images = $this->product_image_model->get_all(
+            array(
+                "product_id" => $id
+            )
+        );
+
         $this->load->view("{$this->viewFolder}/{$viewData->subviewFolder}/index", $viewData);
 
     }
@@ -252,7 +258,7 @@ class Product extends CI_Controller
 
             $this->product_image_model->add(
                 array (
-                    "image_url"     => $uploaded_file,
+                    "img_url"     => $uploaded_file,
                     "rank"        => 0,
                     "isActive"    => 1,
                     "isCover"     => 0,

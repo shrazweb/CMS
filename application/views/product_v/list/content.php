@@ -21,7 +21,6 @@
                     </thead>
                     <tbody class="sortable" data-url="<?php echo base_url("product/rankSetter"); ?>">
                   <?php foreach($items as $item) {;?>
-
                       <tr id="ord-<?php echo $item->id; ?>">
                           <td><i class="fa fa-reorder"></i></td>
                           <td><?php echo $item->id ;?></td>
@@ -47,7 +46,6 @@
                               <a href="<?php echo base_url("product/image_form/$item->id"); ?>" class="btn btn-sm btn-default"><i class="fa fa-image"></i> Resimler</a>
                           </td>
                       </tr>
-
                   <?php } ;?>
 
                     </tbody>
